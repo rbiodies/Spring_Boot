@@ -35,24 +35,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-//                .csrf()
-//                .disable()
                 .authorizeRequests()
-                //Доступ только для не зарегистрированных пользователей
-//                .antMatchers("/signUp").not().fullyAuthenticated()
-                //Доступ только для пользователей с ролью Администратор
                 .antMatchers("/admin/panel/**").hasRole("ADMIN")
                 .antMatchers("/session/search", "/films/{filmId}/**").hasRole("USER")
-                //Доступ разрешен всем пользователей
                 .antMatchers("/", "/resources/**", "/signUp").permitAll()
-                //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
                 .and()
-                //Настройка для входа в систему
                 .formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("email")
-                //Перенарпавление на главную страницу после успешного входа
                 .defaultSuccessUrl("/default")
                 .permitAll()
                 .and()
