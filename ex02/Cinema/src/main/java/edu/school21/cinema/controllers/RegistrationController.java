@@ -31,10 +31,12 @@ public class RegistrationController {
         }
         if (!user.getPassword().equals(user.getPasswordConfirm())){
             bindingResult.rejectValue("password", "user.password.mismatch");
+//            model.addAttribute("passwordError", "Пароли не совпадают");
             return "signUp";
         }
         if (!userService.saveUser(user)){
             bindingResult.rejectValue("email", "user.email.exists");
+//            model.addAttribute("usernameError", "Пользователь с таким email уже существует");
             return "signUp";
         }
 

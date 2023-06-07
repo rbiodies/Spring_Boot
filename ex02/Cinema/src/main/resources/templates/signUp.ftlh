@@ -14,6 +14,7 @@
 </head>
 <body>
 <div align="center">
+<#--    <h2><@spring.message "newuser"/></h2>-->
     <input type="button" style="width: 150px; height: 50px;" onclick="location.href='?lang=en';" value=<@spring.message "lang.eng"/> />
     <input type="button" style="width: 150px; height: 50px;" onclick="location.href='?lang=ru';" value=<@spring.message "lang.ru"/> />
     <form name="user" action="signUp" method="POST">
@@ -43,6 +44,7 @@
                 <td><@spring.formInput "user.email" "" "email"/></td>
                 <td style="color: red"><@spring.showErrors "<br>"/><td>
             </tr>
+<#--            ${(usernameError)!}-->
             <tr>
                 <td><@spring.message "password"/>: </td>
                 <td><@spring.formPasswordInput "user.password" ""/></td>
@@ -53,9 +55,15 @@
                 <td><@spring.formPasswordInput "user.passwordConfirm" ""/></td>
                 <td style="color: red"><@spring.showErrors "<br>"/><td>
             </tr>
+<#--            ${(passwordError)!}-->
             <tr>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </tr>
+<#--            <tr>-->
+<#--                <td colspan="2"><input type="submit" value="<@spring.message "signup"/>"></td>-->
+<#--                <td colspan="2"><input type="reset" value=<@spring.message "reset"/>></td>-->
+<#--                <td colspan="2"><input type="button" onclick="location.href='/';" value=<@spring.message "main"/> /></td>-->
+<#--            </tr>-->
         </table>
         <input type="submit" style="width: 150px; height: 50px;" value="<@spring.message "signup"/>">
     </form>

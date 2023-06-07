@@ -39,9 +39,13 @@ public class User implements UserDetails {
     @Pattern(regexp = "^(\\+\\d{1,2})?\\(\\d{3}\\)\\d{7}$", message = "{user.phonenumber.mismatch}")
     private String phoneNumber;
 
+//    @NotBlank//
+//    @Size(max = 50)
     @Email
     private String email;
 
+//    @NotBlank//
+//    @Size(min=2, message = "Не меньше 2 знаков")//
     @ValidPassword(message = "{errors.incorrect.password}")
     private String password;
 
