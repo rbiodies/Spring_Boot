@@ -8,3 +8,15 @@ This project is a more modern and refined implementation of the projects [FWA](h
 - [ex00: Implementation role-based access to all pages using Spring Security framework](https://github.com/rbiodies/Spring_Boot/tree/master/ex00/Cinema)
 - [ex01: Implementation support for at multiple language and validate a registration](https://github.com/rbiodies/Spring_Boot/tree/master/ex01/Cinema)
 - [ex02: Confirmation of a registered account using a link sent to a user’s email shall be implemented](https://github.com/rbiodies/Spring_Boot/tree/master/ex02/Cinema)
+
+## Usage
+1. Download and run [Postgres](https://www.postgresql.org/download/) (for example, [Postgres.app](https://postgresapp.com/downloads.html)).
+2. Connect to the database.
+3. Create tables by running [src/main/resources/sql/schema.sql](https://github.com/rbiodies/Spring_Boot/blob/master/ex02/Cinema/src/main/resources/sql/schema.sql) and fill them with test data by running [src/main/resources/sql/data.sql](https://github.com/rbiodies/Spring_Boot/blob/master/ex02/Cinema/src/main/resources/sql/data.sql) (optional).
+4. To send an email, you need to use an existing mailbox, e.g., [Gmail](https://www.techmazza.com/solve-java-mail-authentication-failed-exception-in-springboot/) (optional, but logging in without a verified registration will not work).
+5. Navigate to the root of the project via command line and execute the command
+```
+mvn spring-boot:run
+```
+## Example
+Video is loading...
