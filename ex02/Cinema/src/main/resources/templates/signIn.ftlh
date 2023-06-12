@@ -16,7 +16,7 @@
 <div align="center">
     <h2><@spring.message "userform"/></h2>
     <div class="alert alert-success" role="alert">
-        <p>${(verifiedAccountMsg)!}</p>
+        <p style="color:green">${(verifiedAccountMsg)!}</p>
     </div>
     <div class="alert alert-danger" role="alert">
         <p style="color:red">${(tokenError)!}</p>

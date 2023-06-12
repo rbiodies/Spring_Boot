@@ -1,6 +1,7 @@
 package edu.school21.cinema.services;
 
 import edu.school21.cinema.models.*;
+import edu.school21.cinema.repositories.RoleRepository;
 import edu.school21.cinema.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,14 +23,13 @@ public class UserService implements UserDetailsService {
 
     UserRepository userRepository;
 
-    @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    private ConfirmationTokenService confirmationTokenService;
+    RoleRepository roleRepository;
 
-    @Autowired
-    private EmailService emailService;
+    ConfirmationTokenService confirmationTokenService;
+
+    EmailService emailService;
 
     @Value("${server.address}")
     private String serverAddress;
@@ -37,8 +38,12 @@ public class UserService implements UserDetailsService {
     private int serverPort;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder, RoleRepository roleRepository, ConfirmationTokenService confirmationTokenService, EmailService emailService) {
         this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.roleRepository = roleRepository;
+        this.confirmationTokenService = confirmationTokenService;
+        this.emailService = emailService;
     }
 
     public boolean saveUser(User user) {
@@ -48,10 +53,10 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        user.setRoles(Collections.singleton(new Role(ERole.ROLE_USER)));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setVerification(EVerifications.NOT_CONFIRMED);
 
+        user.setRoles(Collections.singletonList(roleRepository.findByName(ERole.ROLE_USER).orElse(null)));
         userRepository.save(user);
 
         ConfirmationToken confirmationToken = new ConfirmationToken(user);

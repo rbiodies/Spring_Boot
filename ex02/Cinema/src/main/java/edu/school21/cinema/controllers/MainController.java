@@ -5,6 +5,7 @@ import edu.school21.cinema.models.ERole;
 import edu.school21.cinema.models.User;
 import edu.school21.cinema.services.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -34,7 +34,7 @@ public class MainController {
     }
 
     @RequestMapping("/default")
-    public String defaultAfterLogin(@Valid User user, HttpServletRequest request) {
+    public String defaultAfterLogin(@AuthenticationPrincipal User user, HttpServletRequest request) {
         dataService.save(new Data(user, getClientDate(), getClientTime(), getClientIP(request)));
         if (request.isUserInRole(ERole.ROLE_ADMIN.name())) {
             return "redirect:/admin/panel/halls/";

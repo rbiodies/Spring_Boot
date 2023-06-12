@@ -15,15 +15,15 @@ INSERT INTO cinema.users (first_name, last_name, username, phone_number, email, 
 VALUES ('Sergey', 'Esenin', null, '88005353530', 'senya@yandex.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'NOT_CONFIRMED', null);
 
 INSERT INTO cinema.user_roles (user_id, roles_id)
+VALUES (1, 1);
+INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (1, 2);
 INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (2, 1);
 INSERT INTO cinema.user_roles (user_id, roles_id)
-VALUES (2, 2);
-INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (3, 1);
 INSERT INTO cinema.user_roles (user_id, roles_id)
-VALUES (4, 1);
+VALUES (4, 2);
 INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (5, 1);
 

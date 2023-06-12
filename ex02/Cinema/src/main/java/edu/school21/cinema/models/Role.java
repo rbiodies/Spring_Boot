@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @NoArgsConstructor
@@ -21,9 +22,8 @@ public class Role implements GrantedAuthority {
     @Column(length = 20)
     private ERole name;
 
-    public Role(ERole name) {
-        this.name = name;
-    }
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users;
 
     @Override
     public String getAuthority() {

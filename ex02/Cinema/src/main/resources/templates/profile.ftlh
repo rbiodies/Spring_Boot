@@ -6,7 +6,7 @@
             width: 200px;
             height: 200px;
             object-fit:cover;
-            border-radius:50%;
+            border-radius:50%
         }
     </style>
 </head>
@@ -36,6 +36,7 @@
 
     <form method="post" action="/profile/upload" enctype="multipart/form-data" modelAttribute="user">
         Choose a file: <input type="file" name="fileUpload" />
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="submit" value="Upload" />
     </form>
 
