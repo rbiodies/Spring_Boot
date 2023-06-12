@@ -34,27 +34,31 @@ public class User implements UserDetails {
     @Size(min=2, message = "{user.size}")
     private String lastName;
 
+    @NotBlank(message = "{user.username.mandatory}")
     private String username;
 
     @Pattern(regexp = "^(\\+\\d{1,2})?\\(\\d{3}\\)\\d{7}$", message = "{user.phonenumber.mismatch}")
     private String phoneNumber;
 
-//    @NotBlank//
-//    @Size(max = 50)
+    @NotBlank(message = "{user.email.mandatory}")
     @Email
     private String email;
 
-//    @NotBlank//
-//    @Size(min=2, message = "Не меньше 2 знаков")//
     @ValidPassword(message = "{errors.incorrect.password}")
     private String password;
 
     @Transient
     private String passwordConfirm;
 
+    @Enumerated(EnumType.STRING)
+    private EVerifications verification;
+
+    @Transient
+    private boolean enabled;
+
     private String avatarUrl;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "roles_id"))
@@ -87,6 +91,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }

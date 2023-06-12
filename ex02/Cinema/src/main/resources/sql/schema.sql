@@ -13,16 +13,25 @@ CREATE TABLE IF NOT EXISTS cinema.users (
     id                  SERIAL PRIMARY KEY,
     first_name          TEXT NOT NULL,
     last_name           TEXT NOT NULL,
+    username            TEXT,
     phone_number        TEXT NOT NULL,
     email               TEXT NOT NULL,
     password            TEXT,
-    username            TEXT,
+    verification        TEXT,
     avatar_url          TEXT
 );
 
 CREATE TABLE IF NOT EXISTS cinema.user_roles (
     user_id             INTEGER NOT NULL REFERENCES cinema.users(id),
     roles_id            INTEGER NOT NULL REFERENCES cinema.roles(id)
+);
+
+CREATE TABLE IF NOT EXISTS cinema.confirmation_tokens (
+    id                  SERIAL PRIMARY KEY,
+    confirmation_token  TEXT,
+    created_date        TIMESTAMP,
+    expired_date        TIMESTAMP,
+    user_id             INTEGER NOT NULL REFERENCES cinema.users(id)
 );
 
 CREATE TABLE IF NOT EXISTS cinema.persistent_logins (

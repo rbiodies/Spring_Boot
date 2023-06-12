@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-//@Transactional
 public class DataServiceImpl implements DataService {
 
     DataRepository repo;
@@ -20,7 +19,7 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public Data findById(Long dataId) {
-        return repo.findById(dataId).get();
+        return repo.findById(dataId).orElse(null);
     }
 
     @Override

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-//@Transactional
 public class ChatMessageServiceImpl implements ChatMessageService {
 
     ChatMessageRepository repo;
@@ -20,7 +19,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
     @Override
     public ChatMessage findById(Long chatMessageId) {
-        return repo.findById(chatMessageId).get();
+        return repo.findById(chatMessageId).orElse(null);
     }
 
     @Override

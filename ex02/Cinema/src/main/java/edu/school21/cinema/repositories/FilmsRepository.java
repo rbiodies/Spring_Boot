@@ -6,12 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface FilmsRepository extends JpaRepository<Film, Long> {
-
-    @Override
-    Optional<Film> findById(Long aLong);
 
     List<Film> findAllByNameOrYearOfReleaseOrAgeRestrictionsOrDescriptionLike(String keyword, String keyword2, String keyword3, String keyword4);
 

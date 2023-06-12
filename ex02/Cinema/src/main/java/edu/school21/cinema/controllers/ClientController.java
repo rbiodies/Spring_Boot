@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -57,7 +56,10 @@ public class ClientController {
                 Image image = new Image(user, originalFileName, getSize(file), file.getContentType(), fileName);
                 File filePath = new File(myProperty + File.separator + "images");
                 if (!filePath.exists()){
-                    filePath.mkdirs();
+                    boolean wasSuccessful = filePath.mkdirs();
+                    if (!wasSuccessful) {
+                        System.out.println("was not successful.");
+                    }
                 }
                 try {
                     file.transferTo(new File(System.getProperty("user.dir") + File.separator + myProperty + File.separator + fileName));

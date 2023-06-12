@@ -1,13 +1,11 @@
 package edu.school21.cinema.repositories;
 
-import edu.school21.cinema.models.Hall;
 import edu.school21.cinema.models.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface SessionsRepository extends JpaRepository<Session, Long> {
 
@@ -16,9 +14,6 @@ public interface SessionsRepository extends JpaRepository<Session, Long> {
     void deleteByFilmId(Long id);
 
     List<Session> findAllByFilmNameLike(String name);
-
-    @Override
-    Optional<Session> findById(Long aLong);
 
     List<Session> findAllByDateTimeOrTicketCostLike(String keyword, String keyword2);
 

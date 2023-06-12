@@ -3,16 +3,16 @@ VALUES ('ROLE_USER');
 INSERT INTO cinema.roles (name)
 VALUES ('ROLE_ADMIN');
 
-INSERT INTO cinema.users (first_name, last_name, phone_number, email, password, username, avatar_url)
-VALUES ('Alexandr', 'Pushkin', '88005353535', 'winter@yandex.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'monkey', null);
-INSERT INTO cinema.users (first_name, last_name, phone_number, email, password, username, avatar_url)
-VALUES ('Mihail', 'Lermontov', '88005353532', 'luna@ya.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'moon', null);
-INSERT INTO cinema.users (first_name, last_name, phone_number, email, password, username, avatar_url)
-VALUES ('Fedor', 'Dostoevskiy', '88005353536', 'prestuplenie@mail.com', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'raskolnikov', null);
-INSERT INTO cinema.users (first_name, last_name, phone_number, email, password, username, avatar_url)
-VALUES ('Mihail', 'Bulgakov', '88005353636', 'margarita@gmail.com', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'master', null);
-INSERT INTO cinema.users (first_name, last_name, phone_number, email, password, username, avatar_url)
-VALUES ('Sergey', 'Esenin', '88005353530', 'senya@yandex.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'deboshir', null);
+INSERT INTO cinema.users (first_name, last_name, username, phone_number, email, password, verification, avatar_url)
+VALUES ('Alexandr', 'Pushkin', null, '88005353535', 'winter@yandex.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'CONFIRMED', null);
+INSERT INTO cinema.users (first_name, last_name, username, phone_number, email, password, verification, avatar_url)
+VALUES ('Mihail', 'Lermontov', null, '88005353532', 'luna@ya.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'CONFIRMED', null);
+INSERT INTO cinema.users (first_name, last_name, username, phone_number, email, password, verification, avatar_url)
+VALUES ('Fedor', 'Dostoevskiy', null, '88005353536', 'prestuplenie@mail.com', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'CONFIRMED', null);
+INSERT INTO cinema.users (first_name, last_name, username, phone_number, email, password, verification, avatar_url)
+VALUES ('Mihail', 'Bulgakov', null, '88005353636', 'margarita@gmail.com', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'CONFIRMED', null);
+INSERT INTO cinema.users (first_name, last_name, username, phone_number, email, password, verification, avatar_url)
+VALUES ('Sergey', 'Esenin', null, '88005353530', 'senya@yandex.ru', '$2a$10$C8doa07v8LMG5FaEBkmWRekibKatudakwH2wVwgWZkzeVjeE.y536', 'NOT_CONFIRMED', null);
 
 INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (1, 2);
@@ -26,6 +26,17 @@ INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (4, 1);
 INSERT INTO cinema.user_roles (user_id, roles_id)
 VALUES (5, 1);
+
+INSERT INTO cinema.confirmation_tokens (confirmation_token, expired_date, user_id)
+VALUES (null, null, 1);
+INSERT INTO cinema.confirmation_tokens (confirmation_token, expired_date, user_id)
+VALUES (null, null, 2);
+INSERT INTO cinema.confirmation_tokens (confirmation_token, expired_date, user_id)
+VALUES (null, null, 3);
+INSERT INTO cinema.confirmation_tokens (confirmation_token, expired_date, user_id)
+VALUES (null, null, 4);
+INSERT INTO cinema.confirmation_tokens (confirmation_token, expired_date, user_id)
+VALUES (null, null, 5);
 
 INSERT INTO cinema.data (user_id, date, time, ip)
 VALUES (1, 'December 31, 2021', '23:59', '127.0.0.1');

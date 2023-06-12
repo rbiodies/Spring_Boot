@@ -15,6 +15,12 @@
 <body>
 <div align="center">
     <h2><@spring.message "userform"/></h2>
+    <div class="alert alert-success" role="alert">
+        <p>${(verifiedAccountMsg)!}</p>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        <p style="color:red">${(tokenError)!}</p>
+    </div>
     <form action="/signIn" method="POST">
         <table>
             <tr>
@@ -37,7 +43,7 @@
         </table>
         <input type="submit" value=<@spring.message "submit"/> />
         <input type="reset" value=<@spring.message "reset"/> />
-        <input type="button" onclick="location.href='signUp';" value="<@spring.message "signup"/>" />
+        <input type="button" onclick="location.href='/signUp';" value="<@spring.message "signup"/>" />
     </form>
 </div>
 </body>

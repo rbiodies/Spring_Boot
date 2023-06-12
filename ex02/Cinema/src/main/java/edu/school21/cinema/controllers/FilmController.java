@@ -55,7 +55,10 @@ public class FilmController {
                 String fileName = "images" + File.separator + UUID.randomUUID() + originalFileName.substring(originalFileName.lastIndexOf("."));
                 File filePath = new File(myProperty);
                 if (!(filePath).exists()){
-                    filePath.mkdirs();
+                    boolean wasSuccessful = filePath.mkdirs();
+                    if (!wasSuccessful) {
+                        System.out.println("was not successful.");
+                    }
                 }
                 try {
                     file.transferTo(new File(System.getProperty("user.dir") + File.separator + filePath + File.separator + fileName));

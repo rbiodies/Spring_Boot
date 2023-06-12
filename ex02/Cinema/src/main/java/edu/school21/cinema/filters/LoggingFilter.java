@@ -1,8 +1,6 @@
 package edu.school21.cinema.filters;
 
 import edu.school21.cinema.models.ERole;
-import edu.school21.cinema.models.User;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -29,15 +27,11 @@ public class LoggingFilter implements Filter {
         Principal principal = req.getUserPrincipal();
 
         if (principal != null && (uri.endsWith("/signUp") || uri.endsWith("/signIn"))) {
-//            User user = (User) ((Authentication) principal).getPrincipal();
             if (req.isUserInRole(ERole.ROLE_ADMIN.name())) {
                 res.sendRedirect("/admin/panel/halls");
             } else if (req.isUserInRole(ERole.ROLE_USER.name())) {
                 res.sendRedirect("/profile");
             }
-        } else if (principal == null && !uri.endsWith("/") && !uri.endsWith("/signUp") && !uri.endsWith("/signIn")) {
-//            res.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            res.sendRedirect("/signIn");
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }
