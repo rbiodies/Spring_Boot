@@ -29,6 +29,9 @@
                 <td colspan="2"><input type="submit" value="Save"></td>
                 <td colspan="2"><input type="reset" value="Reset"></td>
             </tr>
+            <tr>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </tr>
         </table>
     </form>
 </div>

@@ -5,6 +5,9 @@
     <title>Movie Chat Room</title>
 </head>
 <body>
+<input type="button" onclick="location.href='/session/search';" value="Cinema"/>
+<input type="button" onclick="location.href='/';" value="Menu" />
+<input type="button" onclick="location.href='/profile';" value="Profile"/>
 <h1>${film.name}</h1>
 
 <div id="chat-messages" align="center">

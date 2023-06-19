@@ -5,13 +5,13 @@
 <body>
 <div align="center">
     <h2>Hall Manager</h2>
-    <form method="get" action="search">
+    <form method="get" action="/admin/panel/halls/search">
         <label>
             <input type="text" name="keyword" />
         </label>
         <input type="submit" value="Search" />
     </form>
-    <h3><a href="new">New Hall</a></h3>
+    <h3><a href="/admin/panel/halls/new">New Hall</a></h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
