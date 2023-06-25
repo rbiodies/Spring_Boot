@@ -6,6 +6,8 @@ The objective of this project is to make a final MVP for our application using t
 This project is a more modern and refined implementation of the projects [FWA](https://github.com/rbiodies/FWA) and [Cinema](https://github.com/rbiodies/Cinema).
 ## Descriptions
 - [ex00: Implementation role-based access to all pages, "remember-me" functionality on /signIn page and protection against csrf attacks using Spring Security framework](https://github.com/rbiodies/Spring_Boot/tree/master/ex00/Cinema)
+
+>[Cross-site request forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery), also known as one-click attack or session riding and abbreviated as CSRF, is a type of malicious exploit website or web application where unauthorized commands are submitted from a user that the web application trusts
 - [ex01: Implementation support for at multiple language and validate a registration](https://github.com/rbiodies/Spring_Boot/tree/master/ex01/Cinema)
 - [ex02: Confirmation of a registered account using a link sent to a user’s email shall be implemented](https://github.com/rbiodies/Spring_Boot/tree/master/ex02/Cinema)
 
@@ -21,7 +23,7 @@ This project is a more modern and refined implementation of the projects [FWA](h
 mvn spring-boot:run
 ```
 ## Example
+### Registration and authorization
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/lcT5yzhhfGk)
-### [Cross-site request forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
-Also known as one-click attack or session riding and abbreviated as CSRF, is a type of malicious exploit website or web application where unauthorized commands are submitted from a user that the web application trusts
+### Protection against csrf attacks
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/xkegzna4wto)
