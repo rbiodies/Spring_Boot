@@ -24,6 +24,6 @@ mvn spring-boot:run
 ```
 ## Example
 ### Registration and authorization
-[![IMAGE ALT TEXT HERE](https://github.com/rbiodies/Spring_Boot/assets/90090114/a99627c0-a3fd-44a5-ac97-1f8bef43f094)](https://youtu.be/lcT5yzhhfGk)
+[![IMAGE ALT TEXT HERE](https://github.com/rbiodies/Spring_Boot/blob/master/Снимок%20экрана%202023-06-27%20в%2016.34.33.png)](https://youtu.be/lcT5yzhhfGk)
 ### Protection against csrf attacks
-[![IMAGE ALT TEXT HERE](https://github.com/rbiodies/Spring_Boot/assets/90090114/51d7f9a0-4ef4-47a2-a938-321cc4f436fd)](https://youtu.be/xkegzna4wto)
+[![IMAGE ALT TEXT HERE](https://github.com/rbiodies/Spring_Boot/blob/master/Снимок%20экрана%202023-06-27%20в%2016.34.50.png)](https://youtu.be/xkegzna4wto)
